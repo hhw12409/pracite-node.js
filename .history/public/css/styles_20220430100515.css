@@ -3,14 +3,14 @@
 @import "variables.css";
 
 /* Components */
-@import "components/nav-bar.css";
+/* @import "components/nav-bar.css"; */
 
 body{
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-a {
+a:not(.link-list) {
   text-decoration: none;
   color:var(--text-color);
 }

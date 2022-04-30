@@ -10,7 +10,7 @@ body{
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-a {
+a:not(.link-list) {
   text-decoration: none;
   color:var(--text-color);
 }

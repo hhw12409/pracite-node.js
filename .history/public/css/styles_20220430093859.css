@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
-
-@import "variables.css";
-
 /* Components */
 @import "components/nav-bar.css";
+@import "variables.css"
+
 
 body{
   margin: 0;

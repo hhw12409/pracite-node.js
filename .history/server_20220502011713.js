@@ -8,9 +8,9 @@ MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true } ,(err, clie
   if(err) return console.log(err)
   db = client.db(process.env.Collection);
 
-  db.collection('posts').insertOne( {이름 : 'John', _id : 100} , function(err, result){
-      console.log(`테스트저장완료 ${result}`); 
-  });
+  db.collection('post').insertOne( {이름 : 'John', _id : 100} , function(에러, 결과){
+    console.log('저장완료'); 
+});
 
   app.listen(process.env.PORT , function(){
     console.log("listening on server");

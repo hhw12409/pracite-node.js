@@ -2,11 +2,6 @@ const express = require('express');
 const app = express();
 
 const MongoClient = require('mongodb').MongoClient;
-MongoClient.connect(process.env.URL, (err, result)=> {
-  app.listen(process.env.PORT , function(){
-    console.log("listening on server");
-  });
-})
 
 // css middleware연동
 app.use(express.static(__dirname + '/public'));
@@ -31,3 +26,6 @@ app.get('/javascript', (req, res)=> {
   res.render('javascript.ejs', {})
 })
 
+app.listen(process.env.PORT , function(){
+  console.log("listening on server");
+});

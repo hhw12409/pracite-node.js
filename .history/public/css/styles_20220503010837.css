@@ -14,10 +14,6 @@ body{
   transform: rotate(0.03deg);
 }
 
-div, input, textarea {
-  box-sizing: border-box;
-}
-
 a {
   text-decoration: none;
   color:var(--text-color);

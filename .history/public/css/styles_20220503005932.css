@@ -5,17 +5,10 @@
 /* Components */
 @import "components/nav-bar.css";
 
-/* Screens */
-@import "screens/write.css";
-
-body{
+body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
   transform: rotate(0.03deg);
-}
-
-div, input, textarea {
-  box-sizing: border-box;
 }
 
 a {

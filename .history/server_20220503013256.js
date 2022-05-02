@@ -2,13 +2,6 @@ const express = require('express');
 const app = express();
 require('dotenv').config()
 
-// css middleware연동
-app.use(express.static(__dirname + '/public'));
-
-app.set('view engine', 'ejs');
-
-require('dotenv').config()
-
 const MongoClient = require('mongodb').MongoClient;
 let db;
 MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true } ,(err, client)=> {
@@ -19,6 +12,13 @@ MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true } ,(err, clie
     console.log("listening on server");
   });
 })
+
+// css middleware연동
+app.use(express.static(__dirname + '/public'));
+
+app.set('view engine', 'ejs');
+
+require('dotenv').config()
 
 app.get('/', (req, res)=> {
   res.render('index.ejs', {})
@@ -39,5 +39,4 @@ app.get('/javascript', (req, res)=> {
 app.get('/write', (req, res)=> {
   res.render('write.ejs', {})
 })
-
 

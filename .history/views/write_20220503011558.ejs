@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>node.js practice</title>
+</head>
+<body>
+  <%- include('nav.html')%>
+  <div class="form-background">
+    <div class="form-white">
+      <form action="">
+        <div class="w-100">
+          <h1>Write Your Post</h1>
+          <p>Title</p>
+          <input type="email" class="form-input" placeholder="Please write title...">
+        </div>
+
+        <div class="w-100">
+          <p>Message</p>
+          <textarea class="form-input">
+          </textarea>
+        </div>
+
+        <div class="w-50">
+          <p>Writer</p>
+          <input type="text" class="form-input">
+        </div>
+
+        <div style="clear: both; float: none;"></div>
+
+        
+        <div>
+          <button class="send-btn">SEND</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>

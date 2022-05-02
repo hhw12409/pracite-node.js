@@ -40,4 +40,3 @@ app.get('/write', (req, res)=> {
   res.render('write.ejs', {})
 })
 
-

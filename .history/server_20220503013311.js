@@ -20,6 +20,8 @@ MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true } ,(err, clie
   });
 })
 
+
+
 app.get('/', (req, res)=> {
   res.render('index.ejs', {})
 })
@@ -39,5 +41,4 @@ app.get('/javascript', (req, res)=> {
 app.get('/write', (req, res)=> {
   res.render('write.ejs', {})
 })
-
 

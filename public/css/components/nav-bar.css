@@ -21,8 +21,9 @@
   padding-left: 0;
 }
 
-.navbar__menu li {
+.navbar__menu li a {
   padding : 8px 12px;
+  display: block;
 }
 
 .navbar__menu li:hover {

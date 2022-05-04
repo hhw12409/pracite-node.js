@@ -42,12 +42,11 @@ app.get('/write', (req, res)=> {
 app.post('/write', (req, res) => {
   res.redirect('/')
   db.collection('counter').findOne({name:'postCount'}, (err, result) => {
-    console.log(req.body)
-    let totalPostNum = result.totalPost
-    const saveList = { _id:totalPostNum + 1, writer : req.user_id, title : req.body.title, content : req.body.content, name : req.body.name}
+    let totalPost = result.totalPost
+    const saveList = { _id:totalPost + 1, writer : req.user_id, title : req.body.title, content : req.body.content, name : req.body.name}
     db.collection('posts').insertOne(saveList, (err, result) => {
       console.log('post저장완료');
-      db.collection('counter').updateOne({name:'postCount'},{ $inc : { totalPostNum : 1}}, (req, res)=> {
+      db.collection('counter').updateOne({name:'postCount'},{ $inc : { totalPost : 1}}, (req, res)=> {
         if(err) {
           return console.log(err)
         }
@@ -56,4 +55,10 @@ app.post('/write', (req, res) => {
   })
 })
 
+app.get('/list', function(req, res) {
+  db.collection('posts').find().toArray(function(err, result) {
+    console.log(result)
+    res.render('list.ejs', { posts : result });
+  });
+});
 

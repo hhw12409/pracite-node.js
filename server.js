@@ -55,10 +55,18 @@ app.post('/write', (req, res) => {
   })
 })
 
-app.get('/list', function(req, res) {
+app.get('/list', (req, res) => {
   db.collection('posts').find().toArray(function(err, result) {
     console.log(result)
     res.render('list.ejs', { posts : result });
   });
 });
 
+app.get('/detail:id', (req, res) => {
+  db.collection('posts').findOne({_id : parseInt(req.params.id)}, (err, result)=> {
+    res.render('detail.ejs', { data : result });
+    if(result == null) {
+      res.send('404 Not Found')
+    }
+  });
+});

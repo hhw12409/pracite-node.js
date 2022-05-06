@@ -10,14 +10,9 @@
 <body>
   <%- include('nav.html')%>
   <div class="container">
-    <h1>Post List</h1>
-    <ul>
-      <% for(let i=0; i < posts.length; i++) { %>
-        <li>
-          <a href="/detail/<%=posts[i]._id%>"><p><%=posts[i].title%></p></a>
-        </li>
-        <% } %>
-    </ul>
+    <h1><%=data.title%></h1>
+    <p><%=data.content%></p>
+    <span>Write by <%=data.name%></span>
   </div>
 </body>
 </html>

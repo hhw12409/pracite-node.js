@@ -25,6 +25,10 @@ div, input, textarea {
   box-sizing: border-box;
 }
 
+input[type=date] {
+  border: none;
+}
+
 a {
   text-decoration: none;
   color:var(--text-color);

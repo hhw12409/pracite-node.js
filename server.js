@@ -62,7 +62,7 @@ app.get('/list', (req, res) => {
   });
 });
 
-app.get('/detail:id', (req, res) => {
+app.get('/detail/:id', (req, res) => {
   db.collection('posts').findOne({_id : parseInt(req.params.id)}, (err, result)=> {
     res.render('detail.ejs', { data : result });
     if(result == null) {

@@ -30,17 +30,6 @@
 }
 
 .send-btn {
-  padding: 15px;
-  font-size: 16px;
   display: block;
   margin-left: auto;
-  border: none;
-  border-radius: 10px;
-  background-color: var(--background-color);
-  cursor: pointer;
-}
-
-.send-btn:hover {
-  background-color: var(--accent-color);
-  padding: 18px;
 }

@@ -1,4 +1,5 @@
 const express = require('express');
+const { isRequired } = require('nodemon/lib/utils');
 const app = express();
 require('dotenv').config()
 
@@ -70,3 +71,12 @@ app.get('/detail/:id', (req, res) => {
     }
   });
 });
+
+app.get('/edit/:id', (req, res) => {
+  db.collection('posts').findOen({ _id : parseInt(req.params.id)}, (err ,result) => {
+    res.render('edit.ejs', { data : result });
+    if(result == null) {
+      res.render('404 Not Found')
+    }
+  })
+})

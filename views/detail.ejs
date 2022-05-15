@@ -15,7 +15,11 @@
     <span>Write by <%=data.name%></span></br>
     <p><%=data.date%></p>
   </div>
-  <button class="edit">수정하기</button>
-  <button class="delete">삭제하기</button>
+  <a href="/edit/<%=data._id%>">
+    <button class="edit">수정하기</button>
+  </a>
+  <a href="/delete">
+    <button class="delete">삭제하기</button>
+  </a>
 </body>
 </html>

@@ -61,7 +61,7 @@ app.get('/detail/:id', (req, res) => {
 });
 
 app.get('/edit/:id', (req, res) => {
-  db.collection('posts').findOen({ _id : parseInt(req.params.id)}, (err ,result) => {
+  db.collection('posts').findOne({ _id : parseInt(req.params.id)}, (err ,result) => {
     res.render('edit.ejs', { data : result });
     if(result == null) {
       res.render('404 Not Found')

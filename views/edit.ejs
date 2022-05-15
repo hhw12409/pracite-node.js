@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>node.js practice</title>
+</head>
+<body>
+  <%- include('nav.html')%>
+  <div class="form-background">
+    <div class="form-white">
+      <form action="/write" method="POST">
+        <div class="w-100">
+          <h1>Edit Your Post</h1>
+          <p>Title</p>
+          <input type="text" name="title" class="form-input" placeholder="Please write title...">
+        </div>
+
+        <div class="w-100">
+          <p>Content</p>
+          <textarea rows="4" class="form-input" name="content"></textarea>
+        </div>
+
+        <div class="w-50">
+          <p>Writer</p>
+          <input type="text" class="form-input" name="name">
+        </div>
+
+        <div style="clear: both; float: none;"></div>
+
+        <div class="w-100">
+          <label for="now-date">Date</label>
+          <input type="date" class="hidden" id="now-date" name="date" min="1994-01-01" max="2100-12-31" style="width : 20%">
+        </div> 
+        <div>
+          <button type="submit" class="send-btn">Edit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>

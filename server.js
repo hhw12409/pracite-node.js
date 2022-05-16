@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override')
 require('dotenv').config()
 
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true})) 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
@@ -67,3 +69,10 @@ app.get('/edit/:id', (req, res) => {
     }
   })
 })
+
+app.put('/edit', function(req, res) {
+  db.collection('posts').updateOne({ _id : parseInt(req.body.id) }, { $set : { title : req.body.title, content : req.body.content ,date : req.body.date } }, function(err, result){
+    console.log("수정완료")
+    res.redirect('/list')
+  });
+});

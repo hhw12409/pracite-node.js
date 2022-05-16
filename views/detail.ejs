@@ -18,8 +18,27 @@
   <a href="/edit/<%=data._id%>">
     <button class="edit">수정하기</button>
   </a>
-  <a href="/delete">
-    <button class="delete">삭제하기</button>
-  </a>
+  <button class="delete" data-id="<%=data._id%>">삭제하기</button>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+
+      const btn = document.querySelector('.delete')
+      btn.addEventListener('click', () => {
+        const postNumber = event.target.dataset.id
+        $.ajax({
+          method : 'DELETE',
+          url : '/delete',
+          data : { _id : postNumber }
+        }).done(function(result) {
+          window.location = '/list';
+        }).fail(function() {
+          console.log('fail')
+        })
+      })
+
+    </script>
 </body>
 </html>

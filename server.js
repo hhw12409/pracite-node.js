@@ -33,7 +33,7 @@ app.post('/write', (req, res) => {
   res.redirect('/')
   db.collection('counter').findOne({name:'postCount'}, (err, result) => {
     let totalPost = result.totalPost
-    const saveList = { _id:totalPost + 1, writer : req.user._id, title : req.body.title, content : req.body.content, name : req.body.name, date : req.body.date}
+    const saveList = { _id:totalPost + 1, title : req.body.title, content : req.body.content, name : req.body.name, date : req.body.date}
     db.collection('posts').insertOne(saveList, (err, result) => {
       console.log('post저장완료');
       db.collection('counter').updateOne({name:'postCount'},{ $inc : { totalPost : 1}}, (req, res)=> {
@@ -76,3 +76,12 @@ app.put('/edit', (req, res) => {
   });
 });
 
+app.delete('/delete', (req, res) => {
+  const deleteDate = { _id : parseInt(req.body._id) }
+  db.collection('posts').deleteOne(deleteDate, (err, result) => {
+    if(err) {
+      console.log(err)
+    }
+    res.status(200).send({ message : 'delete success'})
+  })
+})

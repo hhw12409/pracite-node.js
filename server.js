@@ -1,5 +1,4 @@
 const express = require('express');
-const { isRequired } = require('nodemon/lib/utils');
 const app = express();
 require('dotenv').config()
 

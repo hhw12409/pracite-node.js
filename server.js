@@ -72,7 +72,6 @@ app.get('/edit/:id', (req, res) => {
 
 app.put('/edit', function(req, res) {
   db.collection('posts').updateOne({ _id : parseInt(req.body.id) }, { $set : { title : req.body.title, content : req.body.content ,date : req.body.date } }, function(err, result){
-    console.log("수정완료")
     res.redirect('/list')
   });
 });

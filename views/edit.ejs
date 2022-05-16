@@ -11,10 +11,11 @@
   <%- include('nav.html')%>
   <div class="form-background">
     <div class="form-white">
-      <form action="/edit" method="POST">
+      <form action="/edit?_method=PUT" method="POST">
         <div class="w-100">
           <h1>Edit Your Post</h1>
           <p>Title</p>
+          <input type="hidden" name="id" value="<%=data._id%>">
           <input type="text" name="title" class="form-input" value="<%=data.title%>">
         </div>
 

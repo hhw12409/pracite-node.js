@@ -1,7 +1,15 @@
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override')
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+
 require('dotenv').config()
+
+app.use(session({secret : process.env.SECRET_KEY, resave: true, saveUninitialized: false}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true})) 
@@ -14,7 +22,7 @@ const MongoClient = require('mongodb').MongoClient;
 let db;
 MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true } ,(err, client)=> {
   if(err) return console.log(err)
-  db = client.db(process.env.Collection);
+  db = client.db(process.env.COLLECTION);
 
   app.listen(process.env.PORT , function(){
     console.log("listening on server");
@@ -84,4 +92,8 @@ app.delete('/delete', (req, res) => {
     }
     res.status(200).send({ message : 'delete success'})
   })
+})
+
+app.get('/login', (req, res) => {
+  res.render('login.ejs')
 })
